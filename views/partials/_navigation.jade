@@ -1,0 +1,29 @@
+- var active = activeTab || 0;
+nav.navbar.navbar-default(role = "navigation")
+  .container
+    .navbar-header
+      a.navbar-brand(href = "/")
+        - if(home)
+          img(src='/images/logo-white.svg')
+        - else
+          img(src='/images/logo-gray.svg')
+    ul.nav.navbar-nav.navbar-right
+      li(class=(active==1) ? 'active' : '')
+        a(href = "/lawn-care") Mowing
+      li(class=(active==2) ? 'active' : '')
+        a(href = "/bush-and-bed") Bush &amp Bed
+      li(class=(active==3) ? 'active' : '')
+        a(href = "/ourstory") Our Story
+      //- li(class=(active==4) ? 'active' : '')
+      //-   a(href = "/blog") Blog
+      li.highlight(class=(active==5) ? 'active' : '')
+        a(href = "/start") Get your price
+
+      //- if(user)
+        li(class=(active==21) ? 'active' : '')
+          | Hi, <a style="display: inline-block;" href="/profile">#{user.username}</a>
+          &nbsp; 
+          a(style="display: inline-block;" href = "/signout") Logout
+      //- else
+        li(class=(active==20) ? 'active' : '')
+          a(href = "/login") Login

@@ -1,0 +1,74 @@
+extends layoutHome
+
+block hero
+ .container
+  .row
+    .col.col-md-7
+      .hero
+        h2 Lawn Mowing on Auto-Pilot
+        ul.bullet-list
+          li 2016 season begins 3/28 (weekly/bi-weekly) and 4/4 (bi-weekly).
+          li Pay-as-you-go. We don't lock our customers into contracts.
+          li Consistency. You'll never wonder if we're ever coming to mow.
+          li Easy Payments. We charge your card on file the day after service.
+          li Instant online price. No need to schedule an in-person estimate.
+
+    .col-md-5
+      .get-started-form
+
+block benefits
+  .fader
+  .container
+    .row
+      .col.col-sm-4
+        a(href="/refer-a-friend").lawn-care
+          h3 Refer a Friend
+          p Get Paid
+      .col.col-sm-4
+        a(href="/video-testimonials").landscaping
+          h3 Testimonials
+          p Watch Videos
+      .col.col-sm-4
+        a(href="/meet-the-crew").cleanup
+          h3 Meet the Crew
+          p Watch Videos
+
+
+block info
+  .container
+    .row.text-center
+      h2 Order lawn mowing service online
+      p.lead Mow Richmond makes it easy and affordable to order lawn care service. We currently serve select neighborhoods in Chesterfield, Henrico, and Hanover counties as well as neighborhoods in the cities of Richmond, Colonial Heights, and Hopewell.  Take a break this spring and let us do all the work.  If you need assistance with the online order process, feel free to <a href="mailto:cs@mowrichmond.com">email</a> or call us at (804)404-3829.
+      p.lead *Current customers can visit our <a href="http://www.facebook.com/mowrichmond" target="_blank">Facebook</a> for service status updates*
+    .row.text-center
+      h3 Looking to be part of a growing organization?
+      p.lead If you are then Mow Richmond wants to talk to you! We are always accepting applications! <a href="https://mowrichmond.typeform.com/to/whnvjY" target="_blank" id="employment-link">Click here to apply.</a>
+    .row.text-center
+     h3 Mow Richmond partners with Greencare for Troops for 2016!
+     p.lead <a href="/greencare-for-troops">Learn more</a> about how Mow Richmond volunteers to maintain the lawns of deployed military personnel as well as  disbaled and wounded veterans.
+    .row.text-center
+      object#meatball(type="image/svg+xml", data='/images/logo-mini.svg') Logo
+    .row
+      br
+      br
+
+
+      script(type="text/javascript", src="/javascripts/jquery.min.js")
+      script(type="text/javascript", src="/javascripts/custom_script.js")
+      include ./partials/lowerhalf.html
+      script.
+          window.onload=function() {
+            var blade = getSvgElement("meatball", "blade");
+            var bbox = blade.getBBox();
+            var center = {
+              x: bbox.x + bbox.width/2,
+              y: bbox.y + bbox.height/2
+            }
+            var rotateBlades = function(pos){
+              blade.setAttribute("transform", "rotate(" + parseInt(pos*1.8) + ", " + center.x + ", " + center.y + ")");
+            }
+            window.onscroll = function(event){
+              rotateBlades(window.pageYOffset)
+            }
+          }
+
